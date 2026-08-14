@@ -1,63 +1,103 @@
+import placeholderImg from '../assets/images/placeholder.svg';
+
+export const categories = [
+  { id: 'all', name: 'Все' },
+  { id: 'lifts', name: 'Виды лифтов' },
+  { id: 'cabins', name: 'Кабины' },
+  { id: 'doors', name: 'Двери' },
+  { id: 'dispatch', name: 'Диспетчеризация' },
+  { id: 'projects', name: 'Наши проекты' },
+];
+
 export const liftsData = [
+  // --- 2.1 ВИДЫ ЛИФТОВ ---
   {
     id: 'passenger',
     title: 'Пассажирские лифты',
-    category: 'Лифты',
+    category: 'lifts',
     description: 'Для жилых комплексов, офисных центров и отелей. Высокий уровень комфорта и бесшумность.',
     speed: 'до 2.5 м/с',
     capacity: 'до 1600 кг',
-    images: [
-      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?w=800',
-      'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=800',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800'
-    ]
+    images: [placeholderImg]
   },
   {
     id: 'panoramic',
     title: 'Панорамные лифты',
-    category: 'Лифты',
+    category: 'lifts',
     description: 'Эстетичные лифты с остеклением для ТРЦ, бизнес-центров и современных зданий.',
     speed: 'до 2.0 м/с',
     capacity: 'до 1250 кг',
-    images: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800',
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800'
-    ]
+    images: [placeholderImg]
   },
   {
     id: 'freight',
     title: 'Грузовые лифты',
-    category: 'Лифты',
+    category: 'lifts',
     description: 'Надежные подъемные механизмы для складов, производств и торговых комплексов.',
     speed: 'до 1.0 м/с',
     capacity: 'до 5000 кг',
-    images: [
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
-      'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800'
-    ]
+    images: [placeholderImg]
+  },
+
+  // --- 2.2 КАБИНЫ ---
+  {
+    id: 'cabin-lux',
+    title: 'Кабина «Люкс»',
+    category: 'cabins',
+    description: 'Отделка из полированной нержавеющей стали, светодиодные панели, зеркало в полный рост и поручни.',
+    speed: 'Опционально',
+    capacity: 'Под заказ',
+    images: [placeholderImg]
   },
   {
-    id: 'cottage',
-    title: 'Коттеджные лифты',
-    category: 'Лифты',
-    description: 'Компактные бесшумные решения для частных домов и двухуровневых квартир.',
-    speed: 'до 0.63 м/с',
-    capacity: 'до 400 кг',
-    images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800'
-    ]
+    id: 'cabin-standard',
+    title: 'Кабина «Стандарт»',
+    category: 'cabins',
+    description: 'Практичное покрытие из антивандального металлопласта, экономичное LED-освещение.',
+    speed: 'Стандарт',
+    capacity: 'Под заказ',
+    images: [placeholderImg]
+  },
+
+  // --- 2.3 ДВЕРИ ---
+  {
+    id: 'doors-auto',
+    title: 'Автоматические двери',
+    category: 'doors',
+    description: 'Телескопические и центрального открывания. Оснащены световой завесой безопасности.',
+    speed: 'Регулируемая',
+    capacity: 'Ширина 700-1200мм',
+    images: [placeholderImg]
   },
   {
-    id: 'escalators',
-    title: 'Эскалаторы и Траволаторы',
-    category: 'Подъемники',
-    description: 'Для торговых и пассажирских терминалов с высокой пропускной способностью.',
-    speed: '0.5 м/с',
-    capacity: 'до 9000 чел/час',
-    images: [
-      'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800',
-      'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800'
-    ]
+    id: 'doors-fireproof',
+    title: 'Противопожарные двери',
+    category: 'doors',
+    description: 'Двери с высокой огнестойкостью (EI60/EI120) для специализированных объектов.',
+    speed: 'Стандарт',
+    capacity: 'Сертификат ГОСТ',
+    images: [placeholderImg]
+  },
+
+  // --- 3. ДИСПЕТЧЕРИЗАЦИЯ ---
+  {
+    id: 'dispatch-system',
+    title: 'Система диспетчеризации 24/7',
+    category: 'dispatch',
+    description: 'Удаленный мониторинг состояния лифтов в реальном времени, голосовая связь с оператором.',
+    speed: 'Онлайн 24/7',
+    capacity: 'До 256 лифтов',
+    images: [placeholderImg]
+  },
+
+  // --- 4. НАШИ ПРОЕКТЫ ---
+  {
+    id: 'proj-dushanbe-mall',
+    title: 'ЖК в центре г. Душанбе',
+    category: 'projects',
+    description: 'Монтаж и пусконаладка 6 пассажирских и 2 грузовых лифтов с диспетчеризацией.',
+    speed: 'Срок: 2025 г.',
+    capacity: '8 лифтов',
+    images: [placeholderImg]
   }
 ];
