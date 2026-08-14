@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
-import { sendTelegramNotification } from '../../utils/telegram';
-
 export default function ContactsSection() {
   const [formData, setFormData] = useState({
     name: '',

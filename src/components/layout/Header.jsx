@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
   const navLinks = [
-    { name: 'Оборудование', href: '#services' },
     { name: 'О компании', href: '#about' },
-    { name: 'Калькулятор', href: '#calculator' },
-    { name: 'Контакты', href: '#contacts' },
+    { name: 'Каталог', href: '#services' }, 
+    { name: 'Диспетчеризация', href: '#calculator' },
+    { name: 'Наши проекты', href: '#contacts' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Логотип */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-600/30 group-hover:bg-blue-500 transition-colors">
@@ -47,7 +46,7 @@ export default function Header() {
               </div>
               <span className="font-semibold">+992 93 444 37 03</span>
             </div>
-            
+
             <a
               href="#contacts"
               className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-600/20"
@@ -99,4 +98,4 @@ export default function Header() {
       )}
     </header>
   );
-}
+} 

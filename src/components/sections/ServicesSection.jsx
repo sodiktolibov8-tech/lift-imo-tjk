@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Gauge, Weight, CheckCircle2, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { ArrowUpRight, Gauge, Weight, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
 
 const liftsData = [
   {
@@ -11,8 +11,7 @@ const liftsData = [
     capacity: 'до 1600 кг',
     images: [
       'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800'
+      'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=800'
     ]
   },
   {
@@ -52,15 +51,39 @@ const liftsData = [
     ]
   },
   {
-    id: 'escalators',
-    title: 'Эскалаторы и Траволаторы',
+    id: 'travolators',
+    title: 'Траволаторы',
     category: 'Подъемники',
-    description: 'Для торговых и пассажирских терминалов с высокой пропускной способностью.',
-    speed: '0.5 м/с',
+    description: 'Движущиеся пешеходные дорожки без ступеней для аэропортов, вокзалов и супермаркетов.',
+    speed: '0.5 - 0.75 м/с',
     capacity: 'до 9000 чел/час',
     images: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800'
+    ]
+  },
+  {
+    id: 'escalators',
+    title: 'Эскалаторы',
+    category: 'Подъемники',
+    description: 'Наклонные наклейки-лестницы для непрерывного перемещения людей в ТРЦ и метро.',
+    speed: '0.5 м/с',
+    capacity: 'до 6000 чел/час',
+    images: [
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800'
+    ]
+  },
+  {
+    id: 'generators',
+    title: 'Дизельные и бензиновые генераторы',
+    category: 'Энергоснабжение',
+    description: 'Источники бесперебойного электропитания для автономной работы лифтов и объекта при отключении света.',
+    speed: 'Авт. запуск',
+    capacity: 'до 1000 кВт',
+    images: [
+      'https://images.unsplash.com/photo-1581092281447-20773d786f00?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800'
     ]
   }
 ];
@@ -69,7 +92,7 @@ export default function ServicesSection() {
   const [activeCategory, setActiveCategory] = useState('Все');
   const [selectedImageIndex, setSelectedImageIndex] = useState({});
 
-  const categories = ['Все', 'Лифты', 'Подъемники'];
+  const categories = ['Все', 'Лифты', 'Подъемники', 'Энергоснабжение'];
 
   const filteredLifts = activeCategory === 'Все'
     ? liftsData
@@ -103,8 +126,8 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Кнопки переключения категорий */}
-        <div className="flex justify-center gap-3 mb-12">
+        {/* Кнопки фильтрации */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -190,11 +213,15 @@ export default function ServicesSection() {
                   <div className="pt-4 border-t border-slate-800/80 grid grid-cols-2 gap-4 text-xs">
                     <div className="flex items-center gap-2 text-slate-300">
                       <Gauge className="w-4 h-4 text-blue-400" />
-                      <span>Скорость: <strong>{item.speed}</strong></span>
+                      <span>{item.id === 'generators' ? 'Режим' : 'Скорость'}: <strong>{item.speed}</strong></span>
                     </div>
                     <div className="flex items-center gap-2 text-slate-300">
-                      <Weight className="w-4 h-4 text-blue-400" />
-                      <span>Груз: <strong>{item.capacity}</strong></span>
+                      {item.id === 'generators' ? (
+                        <Zap className="w-4 h-4 text-blue-400" />
+                      ) : (
+                        <Weight className="w-4 h-4 text-blue-400" />
+                      )}
+                      <span>{item.id === 'generators' ? 'Мощность' : 'Груз'}: <strong>{item.capacity}</strong></span>
                     </div>
                   </div>
 
