@@ -1,26 +1,24 @@
-import Header from './components/layout/Header';
-import HeroSection from './components/sections/HeroSection';
-import ServicesSection from './components/sections/ServicesSection';
-import AboutSection from './components/sections/AboutSection';
-import CalculatorSection from './components/sections/CalculatorSection';
-import ContactsSection from './components/sections/ContactsSection';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/layout'; // <-- Добавили импорт!
+import About from './components/parts/About';
+import Home from './pages/Home';
+import CATALOG_ITEMS from './components/parts/Сatalog';
+import Dispatch from './components/parts/Dispatch';
+import Projects from './components/parts/Projects';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
-      <Header />
-      <main>
-        <HeroSection />
-        <ServicesSection />
-        <AboutSection />
-        <CalculatorSection />
-        <ContactsSection />
-      </main>
-      <footer className="py-6 text-center text-xs text-slate-600 border-t border-slate-900">
-        © {new Date().getFullYear()} ООО «ИМО». Все права защищены.
-      </footer>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="catalog" element={<CATALOG_ITEMS />} />
+        <Route path="dispatch" element={<Dispatch />} />
+        <Route path="projects" element={<Projects />} />
+
+      </Route>
+    </Routes>
   );
 }
 
-export default App;
+export default App;  
