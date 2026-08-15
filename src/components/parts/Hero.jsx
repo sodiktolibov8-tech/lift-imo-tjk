@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section className="relative bg-black text-white overflow-hidden py-24 lg:py-32 border-b border-blue-900/30">
-      
+
       {/* 1. Агрессивная фон-сетка и мощное свечение */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="container mx-auto px-5 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Левая колонка: Дерзкий заголовок и кнопки */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            
+
             {/* Неоновый статус-бейдж */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-blue-950/60 border border-blue-500/40 text-blue-400 font-mono text-xs uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
@@ -35,15 +35,7 @@ const Hero = () => {
 
             {/* Дерзкие кнопки с неоновой тенью */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Link
-                to="/contacts"
-                className="w-full sm:w-auto px-9 py-4 bg-blue-600 hover:bg-blue-500 text-white font-extrabold uppercase tracking-wider text-sm rounded-lg transition-all shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(59,130,246,0.8)] hover:-translate-y-0.5 flex items-center justify-center gap-3"
-              >
-                Запросить КП
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+
 
               <Link
                 to="/catalog"
@@ -57,7 +49,7 @@ const Hero = () => {
           {/* Правая колонка: Кибер-панель показателей */}
           <div className="lg:col-span-5">
             <div className="relative bg-zinc-950 border border-zinc-800 hover:border-blue-500/50 rounded-xl p-6 sm:p-8 transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-              
+
               {/* Верхняя панель карточки */}
               <div className="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
                 <div>
