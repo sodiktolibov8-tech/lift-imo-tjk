@@ -61,19 +61,19 @@ export default function Dispatch() {
     const t = translations[lang];
 
     return (
-        <section className={`transition-colors duration-300 body-font py-16 relative overflow-hidden ${isDark ? 'bg-black text-slate-300' : 'bg-slate-50 text-slate-700'}`}>
-            {/* Фоновое неоновое свечение */}
-            <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-cyan-600/10 blur-[140px] rounded-full pointer-events-none" />
+        <section className={`transition-colors duration-300 body-font py-12 sm:py-16 relative overflow-hidden ${isDark ? 'bg-black text-slate-300' : 'bg-slate-50 text-slate-700'}`}>
+            {/* Адаптивное фоновое неоновое свечение */}
+            <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-cyan-600/10 blur-[100px] sm:blur-[140px] rounded-full pointer-events-none" />
 
-            <div className="container px-5 py-12 mx-auto flex flex-wrap relative z-10">
+            <div className="container px-4 sm:px-5 py-8 sm:py-12 mx-auto flex flex-wrap relative z-10">
 
                 {/* Заголовок секции */}
-                <div className={`flex w-full mb-12 flex-wrap items-end border-b pb-8 ${isDark ? 'border-zinc-800' : 'border-slate-200'}`}>
+                <div className={`flex w-full mb-10 sm:mb-12 flex-wrap items-end border-b pb-6 sm:pb-8 ${isDark ? 'border-zinc-800' : 'border-slate-200'}`}>
                     <div className="lg:w-1/3 lg:mb-0 mb-4">
                         <span className="text-xs font-mono text-cyan-500 dark:text-cyan-400 uppercase tracking-widest block mb-2">
                             {t.sectionTag}
                         </span>
-                        <h1 className={`text-3xl sm:text-4xl font-black uppercase tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                        <h1 className={`text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
                             {t.titleMain} <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">{t.titleHighlight}</span>
                         </h1>
                     </div>
@@ -87,19 +87,26 @@ export default function Dispatch() {
 
                     {/* Текстовый блок с преимуществами */}
                     <div className="lg:w-1/2 w-full lg:pr-10">
-                        <h3 className={`text-xl sm:text-2xl font-extrabold uppercase mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                        <h3 className={`text-lg sm:text-xl md:text-2xl font-extrabold uppercase mb-3 sm:mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                             {t.contentTitle}
                         </h3>
-                        <p className={`text-sm sm:text-base mb-6 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-600'}`}>
+                        <p className={`text-xs sm:text-sm md:text-base mb-6 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-600'}`}>
                             {t.contentDescription}
                         </p>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             {t.features.map((feature, index) => (
-                                <div key={index} className={`border p-4 rounded-xl flex items-start gap-4 transition-colors ${isDark ? 'bg-zinc-900/80 border-zinc-800' : 'bg-white border-slate-200 shadow-sm'}`}>
-                                    <span className="text-cyan-500 dark:text-cyan-400 font-mono text-lg font-bold">0{index + 1}</span>
+                                <div 
+                                    key={index} 
+                                    className={`border p-3 sm:p-4 rounded-xl flex items-start gap-3 sm:gap-4 transition-all duration-300 select-none ${
+                                        isDark 
+                                            ? 'bg-zinc-900/80 border-zinc-800 hover:border-cyan-500/60 active:border-cyan-500/60' 
+                                            : 'bg-white border-slate-200 hover:border-cyan-500/60 active:border-cyan-500/60 shadow-sm'
+                                    }`}
+                                >
+                                    <span className="text-cyan-500 dark:text-cyan-400 font-mono text-base sm:text-lg font-bold">0{index + 1}</span>
                                     <div>
-                                        <h4 className={`font-bold uppercase text-sm mb-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>{feature.title}</h4>
+                                        <h4 className={`font-bold uppercase text-xs sm:text-sm mb-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>{feature.title}</h4>
                                         <p className={`text-xs sm:text-sm ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>{feature.description}</p>
                                     </div>
                                 </div>
@@ -110,8 +117,8 @@ export default function Dispatch() {
                     {/* Блок с локальным видео */}
                     <div className="lg:w-1/2 w-full">
                         <div className={`relative rounded-2xl overflow-hidden border shadow-[0_0_30px_rgba(6,182,212,0.15)] ${isDark ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-slate-200'}`}>
-                            <div className={`absolute top-3 left-3 z-20 backdrop-blur-md px-3 py-1 rounded border ${isDark ? 'bg-black/70 border-zinc-800' : 'bg-white/80 border-slate-200'}`}>
-                                <span className="text-[10px] font-mono text-cyan-500 dark:text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">
+                            <div className={`absolute top-3 left-3 z-20 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded border ${isDark ? 'bg-black/70 border-zinc-800' : 'bg-white/80 border-slate-200'}`}>
+                                <span className="text-[9px] sm:text-[10px] font-mono text-cyan-500 dark:text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">
                                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                                     ELEVATOR SYSTEMS // PROMO
                                 </span>
@@ -131,7 +138,7 @@ export default function Dispatch() {
                                 </video>
                             </div>
                         </div>
-                        <p className={`text-xs font-mono mt-3 text-center ${isDark ? 'text-zinc-500' : 'text-slate-400'}`}>
+                        <p className={`text-[11px] sm:text-xs font-mono mt-3 text-center ${isDark ? 'text-zinc-500' : 'text-slate-400'}`}>
                             {t.videoNote}
                         </p>
                     </div>

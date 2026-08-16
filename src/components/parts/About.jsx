@@ -92,20 +92,20 @@ const About = () => {
   }));
 
   return (
-    <section className={`py-24 relative overflow-hidden font-sans transition-colors duration-300 ${
+    <section className={`py-16 sm:py-24 relative overflow-hidden font-sans transition-colors duration-300 ${
       isDark ? 'bg-black text-slate-300' : 'bg-slate-50 text-slate-700'
     }`}>
-      {/* Фоновое неоновое свечение */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[140px] rounded-full pointer-events-none" />
+      {/* Адаптивное фоновое неоновое свечение для мобильных и десктопов */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-600/10 blur-[100px] sm:blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-5 relative z-10">
+      <div className="container mx-auto px-4 sm:px-5 relative z-10">
 
         {/* Заголовок секции */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <span className="text-xs font-mono text-cyan-500 dark:text-cyan-400 uppercase tracking-widest block mb-2">
             {t.aboutTag}
           </span>
-          <h2 className={`text-3xl md:text-5xl font-black uppercase tracking-tight mb-6 ${
+          <h2 className={`text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 sm:mb-6 ${
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
             {t.titlePrefix}<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">{t.titleHighlight}</span>{t.titleSuffix}
@@ -117,46 +117,46 @@ const About = () => {
           </p>
         </div>
 
-        {/* Сетка со статистикой (в стиле датчиков) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20">
+        {/* Сетка со статистикой (с поддержкой tap/active эффектов для тач-устройств) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-20">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`border rounded-xl p-6 relative group transition-all duration-300 overflow-hidden shadow-lg ${
+              className={`border rounded-xl p-4 sm:p-6 relative group transition-all duration-300 overflow-hidden shadow-lg select-none ${
                 isDark 
-                  ? 'bg-zinc-950/80 border-zinc-800 hover:border-cyan-500/60' 
-                  : 'bg-white border-slate-200 hover:border-cyan-500/60 shadow-md'
+                  ? 'bg-zinc-950/80 border-zinc-800 hover:border-cyan-500/60 active:border-cyan-500/60' 
+                  : 'bg-white border-slate-200 hover:border-cyan-500/60 active:border-cyan-500/60 shadow-md'
               }`}
             >
               <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-3">
                 <span>{stat.code}</span>
                 <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
               </div>
-              <div className={`text-3xl md:text-4xl font-black group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors tracking-tight mb-1 ${
+              <div className={`text-2xl sm:text-3xl md:text-4xl font-black group-hover:text-cyan-500 group-active:text-cyan-500 dark:group-hover:text-cyan-400 dark:group-active:text-cyan-400 transition-colors tracking-tight mb-1 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
                 {stat.value}
               </div>
-              <div className={`text-xs font-mono ${isDark ? 'text-zinc-400' : 'text-slate-500'}`}>
+              <div className={`text-[11px] sm:text-xs font-mono ${isDark ? 'text-zinc-400' : 'text-slate-500'}`}>
                 {stat.label}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Карточки преимуществ */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Карточки преимуществ (с адаптацией под мобильные нажатия) */}
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
           {features.map((item, index) => (
             <div
               key={index}
-              className={`border rounded-xl p-8 transition-all duration-500 group relative shadow-lg ${
+              className={`border rounded-xl p-6 sm:p-8 transition-all duration-300 group relative shadow-lg select-none ${
                 isDark 
-                  ? 'bg-zinc-950/60 border-zinc-800/80 hover:border-cyan-500/60 hover:bg-zinc-900/40' 
-                  : 'bg-white border-slate-200 hover:border-cyan-500/60 hover:bg-slate-50 shadow-md'
+                  ? 'bg-zinc-950/60 border-zinc-800/80 hover:border-cyan-500/60 active:border-cyan-500/60 hover:bg-zinc-900/40 active:bg-zinc-900/40' 
+                  : 'bg-white border-slate-200 hover:border-cyan-500/60 active:border-cyan-500/60 hover:bg-slate-50 active:bg-slate-50 shadow-md'
               }`}
             >
               <div className="flex items-center justify-between mb-6">
-                <div className={`w-12 h-12 border rounded-lg flex items-center justify-center group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all ${
+                <div className={`w-12 h-12 border rounded-lg flex items-center justify-center group-hover:border-cyan-400 group-active:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] group-active:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all ${
                   isDark ? 'bg-zinc-900 border-blue-500/30' : 'bg-slate-100 border-blue-200'
                 }`}>
                   {item.icon}
@@ -166,7 +166,7 @@ const About = () => {
                 </span>
               </div>
 
-              <h3 className={`text-lg font-black uppercase tracking-wider mb-3 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors ${
+              <h3 className={`text-base sm:text-lg font-black uppercase tracking-wider mb-3 group-hover:text-cyan-500 group-active:text-cyan-500 dark:group-hover:text-cyan-400 dark:group-active:text-cyan-400 transition-colors ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
                 {item.title}

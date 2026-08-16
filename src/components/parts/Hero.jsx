@@ -60,14 +60,14 @@ const Hero = () => {
       }`}></div>
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="container mx-auto px-5 relative z-10">
+      <div className="container mx-auto px-4 sm:px-5 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
 
           {/* Левая колонка: Дерзкий заголовок и кнопки */}
           <div className="lg:col-span-7 text-center lg:text-left">
 
             {/* Неоновый статус-бейдж */}
-            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-md font-mono text-xs uppercase tracking-widest mb-6 shadow-md ${
+            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-md font-mono text-xs uppercase tracking-widest mb-6 shadow-md select-none ${
               isDark 
                 ? 'bg-blue-950/60 border border-blue-500/40 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.2)]' 
                 : 'bg-blue-50 border border-blue-300 text-blue-600'
@@ -84,7 +84,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className={`text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed border-l-2 border-blue-500 pl-4 ${
+            <p className={`text-base sm:text-lg lg:text-xl font-normal max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed border-l-2 border-blue-500 pl-4 ${
               isDark ? 'text-slate-400' : 'text-slate-600'
             }`}>
               {t.description}
@@ -94,10 +94,10 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
                 to="/catalog"
-                className={`w-full sm:w-auto px-9 py-4 font-extrabold uppercase tracking-wider text-sm rounded-lg border transition-all text-center shadow-lg ${
+                className={`w-full sm:w-auto px-9 py-4 font-extrabold uppercase tracking-wider text-sm rounded-lg border transition-all text-center shadow-lg cursor-pointer ${
                   isDark 
-                    ? 'bg-zinc-950 hover:bg-zinc-900 text-slate-200 border-zinc-800 hover:border-blue-500/50' 
-                    : 'bg-white hover:bg-slate-100 text-slate-800 border-slate-300 hover:border-blue-500/50'
+                    ? 'bg-zinc-950 hover:bg-zinc-900 active:bg-zinc-900 text-slate-200 border-zinc-800 hover:border-blue-500/50 active:border-blue-500/50' 
+                    : 'bg-white hover:bg-slate-100 active:bg-slate-100 text-slate-800 border-slate-300 hover:border-blue-500/50 active:border-blue-500/50'
                 }`}
               >
                 {t.catalogButton}
@@ -116,10 +116,10 @@ const Hero = () => {
               {/* Верхняя панель карточки */}
               <div className={`flex items-center justify-between border-b pb-4 mb-6 ${isDark ? 'border-zinc-800' : 'border-slate-200'}`}>
                 <div>
-                  <h3 className={`text-xl font-black uppercase tracking-wider ${isDark ? 'text-white' : 'text-slate-900'}`}>{t.cardTitle}</h3>
-                  <p className="text-xs font-mono text-cyan-500 dark:text-cyan-400">{t.telemetry}</p>
+                  <h3 className={`text-lg sm:text-xl font-black uppercase tracking-wider ${isDark ? 'text-white' : 'text-slate-900'}`}>{t.cardTitle}</h3>
+                  <p className="text-[10px] sm:text-xs font-mono text-cyan-500 dark:text-cyan-400">{t.telemetry}</p>
                 </div>
-                <div className={`flex items-center gap-2 px-3 py-1 rounded font-mono text-xs ${
+                <div className={`flex items-center gap-2 px-3 py-1 rounded font-mono text-xs select-none ${
                   isDark ? 'bg-cyan-950/80 border border-cyan-500/40 text-cyan-400' : 'bg-cyan-50 border border-cyan-300 text-cyan-700'
                 }`}>
                   <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
@@ -128,7 +128,7 @@ const Hero = () => {
               </div>
 
               {/* Хай-тек показатели */}
-              <div className="space-y-4 font-mono">
+              <div className="space-y-3 sm:space-y-4 font-mono">
                 {t.metrics.map((metric, index) => {
                   const colors = [
                     'text-cyan-500 dark:text-cyan-400',
@@ -139,15 +139,15 @@ const Hero = () => {
                     <div key={index} className={`p-3.5 rounded border flex justify-between items-center transition-colors ${
                       isDark ? 'bg-black border-zinc-900 hover:border-zinc-700' : 'bg-slate-50 border-slate-200 hover:border-slate-300'
                     }`}>
-                      <span className={`text-xs uppercase ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>{metric.label}</span>
-                      <span className={`text-sm font-bold ${colors[index]}`}>{metric.value}</span>
+                      <span className={`text-[11px] sm:text-xs uppercase ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>{metric.label}</span>
+                      <span className={`text-xs sm:text-sm font-bold ${colors[index]}`}>{metric.value}</span>
                     </div>
                   );
                 })}
               </div>
 
               {/* Нижняя полоса */}
-              <div className={`mt-6 pt-4 border-t flex justify-between items-center text-xs font-mono ${
+              <div className={`mt-6 pt-4 border-t flex justify-between items-center text-[11px] sm:text-xs font-mono ${
                 isDark ? 'border-zinc-900 text-zinc-600' : 'border-slate-200 text-slate-400'
               }`}>
                 <span>{t.status}</span>

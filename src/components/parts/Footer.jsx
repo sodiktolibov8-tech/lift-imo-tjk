@@ -83,21 +83,21 @@ const Footer = () => {
       {/* Верхняя тонкая неоновая полоска */}
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
 
-      <div className="container px-5 py-14 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container px-4 sm:px-5 py-10 sm:py-14 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         
         {/* Блок с логотипом и описанием */}
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+        <div className="w-full sm:w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left mb-10 md:mb-0">
           <Link to="/" className="flex items-center gap-3 justify-center md:justify-start group">
-            <div className={`relative w-10 h-10 border rounded-lg flex items-center justify-center font-black text-lg tracking-tighter transition-all shadow-md ${
+            <div className={`relative w-10 h-10 border rounded-lg flex items-center justify-center font-black text-lg tracking-tighter transition-all shadow-md select-none ${
               isDark 
-                ? 'bg-zinc-950 border-blue-500/50 text-cyan-400 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:border-cyan-400' 
-                : 'bg-slate-100 border-blue-300 text-cyan-600 group-hover:border-cyan-500'
+                ? 'bg-zinc-950 border-blue-500/50 text-cyan-400 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:border-cyan-400 group-active:border-cyan-400' 
+                : 'bg-slate-100 border-blue-300 text-cyan-600 group-hover:border-cyan-500 group-active:border-cyan-500'
             }`}>
               <span>ИМО</span>
             </div>
             <div className="flex flex-col">
               <span className={`text-lg font-black uppercase tracking-tight transition-colors ${
-                isDark ? 'text-white group-hover:text-cyan-400' : 'text-slate-900 group-hover:text-cyan-600'
+                isDark ? 'text-white group-hover:text-cyan-400 group-active:text-cyan-400' : 'text-slate-900 group-hover:text-cyan-600 group-active:text-cyan-600'
               }`}>
                 ООО «ИМО»
               </span>
@@ -106,16 +106,16 @@ const Footer = () => {
               </span>
             </div>
           </Link>
-          <p className="mt-4 text-xs font-mono text-zinc-500 dark:text-zinc-500 leading-relaxed">
+          <p className="mt-4 text-xs font-mono text-zinc-500 dark:text-zinc-500 leading-relaxed max-w-xs mx-auto md:mx-0">
             {t.description}
           </p>
         </div>
 
         {/* Навигационные колонки */}
-        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-2 md:text-left text-center justify-center sm:justify-start">
           
           {/* Колонка 1: Оборудование */}
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4 mb-10">
+          <div className="lg:w-1/3 md:w-1/2 w-full sm:w-1/2 px-4 mb-10">
             <h2 className="font-mono text-cyan-500 dark:text-cyan-400 font-bold text-xs uppercase tracking-widest mb-4 flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               {t.columns.equipment.title}
@@ -123,7 +123,7 @@ const Footer = () => {
             <nav className="list-none space-y-2.5 text-xs font-mono">
               {t.columns.equipment.items.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.path} className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+                  <Link to={item.path} className="hover:text-cyan-500 active:text-cyan-500 dark:hover:text-cyan-400 dark:active:text-cyan-400 transition-colors inline-block py-1">
                     {item.name}
                   </Link>
                 </li>
@@ -132,7 +132,7 @@ const Footer = () => {
           </div>
 
           {/* Колонка 2: Услуги */}
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4 mb-10">
+          <div className="lg:w-1/3 md:w-1/2 w-full sm:w-1/2 px-4 mb-10">
             <h2 className="font-mono text-cyan-500 dark:text-cyan-400 font-bold text-xs uppercase tracking-widest mb-4 flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               {t.columns.services.title}
@@ -140,7 +140,7 @@ const Footer = () => {
             <nav className="list-none space-y-2.5 text-xs font-mono">
               {t.columns.services.items.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.path} className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+                  <Link to={item.path} className="hover:text-cyan-500 active:text-cyan-500 dark:hover:text-cyan-400 dark:active:text-cyan-400 transition-colors inline-block py-1">
                     {item.name}
                   </Link>
                 </li>
@@ -149,7 +149,7 @@ const Footer = () => {
           </div>
 
           {/* Колонка 3: Компания */}
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4 mb-10">
+          <div className="lg:w-1/3 md:w-1/2 w-full sm:w-1/2 px-4 mb-10">
             <h2 className="font-mono text-cyan-500 dark:text-cyan-400 font-bold text-xs uppercase tracking-widest mb-4 flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
               {t.columns.company.title}
@@ -157,7 +157,7 @@ const Footer = () => {
             <nav className="list-none space-y-2.5 text-xs font-mono">
               {t.columns.company.items.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.path} className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+                  <Link to={item.path} className="hover:text-cyan-500 active:text-cyan-500 dark:hover:text-cyan-400 dark:active:text-cyan-400 transition-colors inline-block py-1">
                     {item.name}
                   </Link>
                 </li>
@@ -170,11 +170,11 @@ const Footer = () => {
 
       {/* Нижняя полоса копирайта */}
       <div className={`border-t py-4 ${isDark ? 'border-zinc-900 bg-zinc-950/80' : 'border-slate-200 bg-slate-100'}`}>
-        <div className="container mx-auto px-5 flex flex-wrap flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-500">
+        <div className="container mx-auto px-4 sm:px-5 flex flex-wrap flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-500 gap-2 sm:gap-0">
           <p className="text-center sm:text-left">
             © {new Date().getFullYear()} ООО «ИМО». {t.rights}
           </p>
-          <p className="mt-2 sm:mt-0 text-cyan-500">
+          <p className="text-cyan-500">
             {t.status}
           </p>
         </div>
